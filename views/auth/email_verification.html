@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="../../public/bootstrap/main.css" />
+		<script src="../../public/bootstrap/bootstrap.bundle.min.js"></script>
+		<!-- Sweet Alert -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
+		<title>Email Verification</title>
+	</head>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		body {
+			overflow-x: hidden;
+		}
+		.wrapper {
+			height: 100vh;
+		}
+		.wrapper-two {
+			height: 100%;
+		}
+
+		.container {
+			width: 40%;
+		}
+
+		.button {
+			width: 100%;
+		}
+	</style>
+	<body class="bg-cusbgprimary">
+		<div class="row wrapper justify-content-center align-items-center">
+			<div class="container bg-white shadow-sm rounded">
+				<div
+					class="d-flex flex-column wrapper-two justify-content-start align-items-start pt-5 py-3 px-5">
+					<h2 class="fw-bolder mb-4">Verify your account here</h2>
+
+					<div class="button d-flex justify-content-center mt-4">
+						<button
+							class="btn btn-primary btn-lg text-white fw-bolder"
+							id="mail-btn">
+							Verify
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="../../public/js/auth/email_verification.js"></script>
+	</body>
+</html>

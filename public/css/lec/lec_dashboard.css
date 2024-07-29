@@ -1,0 +1,61 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+}
+
+a {
+	text-decoration: none;
+}
+
+.current {
+	border-bottom: 3px solid #d8bca2;
+}
+
+.links {
+	font-size: larger;
+}
+
+.links:hover {
+	transition: all 0.5s ease;
+	font-size: 1.3rem;
+	border-bottom: 3px solid lightgrey;
+}
+
+.arrow {
+	width: 100%;
+}
+
+.arrow:hover {
+	margin-left: 1rem;
+}
+
+.navbar {
+	position: relative;
+}
+
+.profile-popup {
+	position: absolute;
+	top: 100%;
+	left: 80%;
+	width: 15rem;
+	max-height: 0px;
+	overflow: hidden;
+	transition: max-height 0.5s;
+	z-index: 2;
+}
+
+.profile-popup.open {
+	max-height: 17rem;
+}
+
+#nav-profile {
+	cursor: pointer;
+}
+
+.wrapper {
+	height: 100vh;
+}

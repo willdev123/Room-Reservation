@@ -1,0 +1,48 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+$custom-colors: (
+	"cusprimary": rgb(191, 153, 117),
+	"cussecondary": rgb(130, 112, 61),
+	"cusbgprimary": rgb(255, 250, 245),
+	"cusbgsecondary": rgb(255, 252, 252),
+	"navprimary": rgb(233, 242, 234),
+	"logotext": rgb(252, 159, 71),
+	"linkselect": rgb(216, 188, 162),
+	"cusbtnprimary": rgb(194, 194, 166),
+	"free": rgb(49, 239, 125),
+	"pending": rgb(245, 140, 42),
+	"reserved": rgb(88, 39, 228),
+	"disabled": rgb(235, 14, 14),
+	"header": rgb(61, 90, 128),
+	"headersecondary": rgb(105, 93, 93),
+	"title": rgb(61, 90, 128),
+	"Freestatus": rgb(21, 149, 0),
+	"Pending": rgb(239, 255, 95),
+	"Reserve": rgb(95, 101, 239),
+	"Disable": rgb(255, 80, 80),
+	"LableCol": rgb(190, 112, 61),
+	"ValueCol": rgb(191, 153, 117),
+	"SearchBox": rgb(194, 194, 166),
+	"logoutbtn": rgb(204, 125, 71),
+	"Backbtn": rgb(190, 164, 164),
+	"Approvebtn": rgb(194, 194, 166),
+	"nondisbtn": rgb(255, 111, 111),
+	"greytext": rgb(130, 130, 130),
+	"darktext": rgb(94, 79, 79),
+	"Removebox": rgb(255, 95, 52),
+	"yesbtn": rgb(184, 244, 147),
+	"services": rgb(252, 159, 71),
+	"login": rgb(204, 125, 71),
+	"singup": rgb(191, 153, 117),
+	"remem": rgb(168, 168, 168),
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap");
+:root {
+	--bs-body-font-family: "Wix Madefor Text", sans-serif;
+}

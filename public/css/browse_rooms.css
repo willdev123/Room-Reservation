@@ -1,0 +1,57 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+a {
+	text-decoration: none;
+}
+
+.current {
+	border-bottom: 3px solid #d8bca2;
+}
+
+.links {
+	font-size: larger;
+}
+
+.links:hover {
+	transition: all 0.5s ease;
+	font-size: 1.3rem;
+	border-bottom: 3px solid lightgrey;
+}
+
+.wrapper {
+	height: 100vh;
+}
+
+.search {
+	width: 100%;
+}
+
+.select {
+	width: 20rem;
+}
+
+.card {
+	width: 25rem;
+	height: 24rem;
+}
+
+.img {
+	height: 10rem;
+	border-radius: 0.5rem;
+}
+
+.slots {
+	font-size: 0.8rem;
+}
+
+.button {
+	width: 5rem;
+}

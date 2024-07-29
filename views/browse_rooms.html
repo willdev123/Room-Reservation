@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="../public/bootstrap/main.css" />
+		<script src="../public/bootstrap/bootstrap.bundle.min.js"></script>
+
+		<script src="../../public/js/common/notiflix-loading-aio-3.2.6.min.js"></script>
+
+		<!-- css -->
+		<link rel="stylesheet" href="../public/css/browse_rooms.css" />
+		<title>MFU Room Booking System</title>
+	</head>
+	<body class="bg-cusbgprimary">
+		<div class="wrapper">
+			<!-- navabar -->
+			<nav class="navbar py-1 bg-navprimary">
+				<div class="left">
+					<a class="navbar-brand text-cusprimary fw-bolder" href="/"
+						><img
+							src="../../public/img/Mae-Fah-Luang-University-2.png"
+							alt="Brand Name"
+							width="60px"
+							height="60px" />
+					</a>
+					<a class="text-linkselect fw-normal mx-2 current links" href="#"
+						>Browse Rooms</a
+					>
+				</div>
+				<div class="right me-3">
+					<button class="btn btn-primary px-3 py-2" id="signup-btn">
+						Sign Up
+					</button>
+				</div>
+			</nav>
+			<!-- search -->
+			<div class="row justify-content-center my-2">
+				<div class="col-lg-6 mb-1">
+					<input
+						type="search"
+						placeholder="Search by room number"
+						class="form-control"
+						id="room_number" />
+				</div>
+
+				<div class="col-lg-3 select mb-1 text-center">
+					<select
+						class="form-select"
+						aria-label="Default select example"
+						id="room_type">
+						<option value="Lab">Lab</option>
+						<option value="Study">Study Room</option>
+						<option value="Lecture">Lecture</option>
+						<option value="Theatre">Theatre</option>
+						<option value="Meeting Room">Meeting Room</option>
+						<option value="Media Room">Media Room</option>
+					</select>
+				</div>
+				<div class="col-lg-1 mb-1 text-center">
+					<button
+						class="btn btn-cusbtnprimary text-white px-3 fw-bold"
+						id="search-btn">
+						Search
+					</button>
+				</div>
+			</div>
+
+			<div class="container cards mt-3">
+				<div class="row justify-content-center gap-5 mb-3" id="room-list"></div>
+			</div>
+
+			<div class="row pagination justify-content-center pb-2">
+				<button
+					class="btn btn-secondary col-lg-6 button me-4 px-1 text-white fw-bolder"
+					id="previous-btn">
+					Previous
+				</button>
+				<button
+					class="btn btn-primary col-lg-6 button text-white fw-bolder"
+					id="next-btn">
+					Next
+				</button>
+			</div>
+		</div>
+
+		<script src="../public/js/browse_rooms.js"></script>
+	</body>
+</html>

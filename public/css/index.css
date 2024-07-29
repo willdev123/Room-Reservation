@@ -1,0 +1,59 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+}
+
+a {
+	text-decoration: none;
+}
+
+.links {
+	font-size: larger;
+}
+
+.links:hover {
+	transition: all 0.5s ease;
+	font-size: 1.3rem;
+	border-bottom: 3px solid lightgrey;
+}
+
+.wrapper {
+	height: 100vh;
+}
+
+#carouselHero .carousel-item {
+	height: 25rem;
+}
+
+#carouselHero .carousel-item img {
+	object-fit: cover;
+	object-position: center;
+	height: 100%;
+	overflow: hidden;
+}
+
+#carouselHero .carousel-item:before {
+	content: "";
+	background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1));
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+.footer {
+	height: 7rem;
+}
+
+.footer-top {
+	width: 60%;
+}
+
+.footer-bottom {
+	width: 15%;
+}

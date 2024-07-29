@@ -1,0 +1,85 @@
+.app {
+	display: flex;
+	background-color: black;
+	width: 100vw;
+	height: 100vh;
+	overflow-y: scroll;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.app .content-wrapper {
+	width: 50vw;
+	height: 100vh;
+	overflow-y: scroll;
+}
+.app .content-wrapper .content .header h3 {
+	font-weight: 500;
+	padding-left: 10%;
+}
+.app .content-wrapper .content .form-wrapper .header-text {
+	text-align: center;
+	margin-top: 4rem;
+	margin-bottom: 3rem;
+}
+
+.image {
+	background-image: url("../../img/loginbackground.png");
+	height: 100vh;
+	width: 50vw;
+	background-size: cover;
+}
+
+.content {
+	padding: 2rem;
+}
+
+.header-text {
+	font-weight: bold;
+}
+
+.mfu-wrapper {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.mfu-logo {
+	height: 6rem;
+	width: 6rem;
+}
+
+.forms {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+a {
+	text-decoration: none;
+}
+
+.password-toggle {
+	position: relative;
+}
+.password-toggle input[type="password"] {
+	padding-right: 30px;
+}
+.password-toggle .toggle-icon {
+	position: absolute;
+	top: 50%;
+	right: 4%;
+	cursor: pointer;
+	transform: translateY(-50%);
+}
+
+.re-password-toggle {
+	position: relative;
+}
+.re-password-toggle input[type="password"] {
+	padding-right: 30px;
+}
+.re-password-toggle .re-toggle-icon {
+	position: absolute;
+	top: 50%;
+	right: 4%;
+	cursor: pointer;
+	transform: translateY(-50%);
+}

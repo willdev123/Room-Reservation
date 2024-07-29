@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="../../public/bootstrap/main.css" />
+		<script src="../../public/bootstrap/bootstrap.bundle.min.js"></script>
+
+		<!-- pie chart -->
+		<script
+			type="text/javascript"
+			src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<!-- css  -->
+		<link rel="stylesheet" href="../../public/css/lec/lec_dashboard.css" />
+		<title>MFU Room Booking System</title>
+	</head>
+	<body class="bg-cusbgprimary">
+		<div class="wrapper">
+			<!-- navbar -->
+			<nav class="navbar py-1 bg-navprimary">
+				<div class="left">
+					<a class="navbar-brand text-cusprimary fw-bolder" href="#"
+						><img
+							src="../../public/img/Mae-Fah-Luang-University-2.png"
+							alt="Brand Name"
+							width="60px"
+							height="60px" />
+					</a>
+					<a class="text-cusprimary fw-normal mx-2 links" href="/book_requests"
+						>Booking Requests</a
+					>
+					<a class="text-linkselect fw-normal mx-2 current links" href="#"
+						>Dashboard</a
+					>
+					<a class="text-cusprimary fw-normal mx-2 links" href="/lec_history"
+						>History</a
+					>
+					<a
+						class="text-cusprimary fw-normal mx-2 links"
+						href="/lec_browse_rooms"
+						>Browse Rooms</a
+					>
+				</div>
+				<div class="right me-3">
+					<img
+						id="nav-profile"
+						src="../../public/img/user.png"
+						alt="profile"
+						width="40"
+						height="40" />
+				</div>
+
+				<!-- pop up -->
+				<div class="profile-popup bg-navprimary shadow-sm mt-1">
+					<div class="pop-up-wrapper p-2">
+						<div
+							class="d-flex gap-4 align-items-center pop-up-header p-3 border-bottom border-2 border-secondary">
+							<img
+								alt="profile"
+								class="rounded-circle"
+								id="pop-up-image"
+								width="50"
+								height="50" />
+							<span
+								class="text-darktext fw-bolder fs-4 text-center"
+								id="pop-up-username"></span>
+						</div>
+						<div class="d-flex gap-3 flex-column pop-up-content p-3">
+							<a href="/lec_profile" class="d-flex align-items-center gap-3">
+								<img
+									src="../../public/img/profile.png"
+									class="pop-up-profile"
+									alt="profile"
+									width="40"
+									height="40" />
+								<span class="text-darktext fw-semibold mx-2 links"
+									>Profile</span
+								>
+								<span
+									class="align-self-end text-darktext ms-4 fs-4 fw-bold arrow"
+									>></span
+								>
+							</a>
+							<a
+								href="/login"
+								class="d-flex align-items-center gap-3"
+								id="log-out">
+								<img
+									src="../../public/img/log-out.png"
+									class="pop-up-profile"
+									alt="profile"
+									width="40"
+									height="40" />
+								<span class="text-darktext fw-semibold mx-2 links">Logout</span>
+								<span
+									class="align-self-end text-darktext ms-4 fs-4 fw-bold arrow"
+									>></span
+								>
+							</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<div class="container p-3 px-5">
+				<div class="header-section d-flex justify-content-between">
+					<h2 class="text-header fw-semibold">
+						Total Rooms -
+						<span class="fw-bolder" id="total-room-number"></span>
+					</h2>
+				</div>
+				<div class="p-2 ms-auto" style="width: 20%">
+					<select id="slot-select" class="form-select">
+						<option value="99" selected>All Slots</option>
+						<option value="0">08:00-10:00 AM slot</option>
+						<option value="1">10:00-12:00 AM slot</option>
+						<option value="2">12:00-14:00 AM slot</option>
+						<option value="3">14:00-16:00 AM slot</option>
+					</select>
+				</div>
+				<div class="pie-wrapper d-flex justify-content-center p-2">
+					<div id="piechart" style="width: 60rem; height: 35rem"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- pie chart -->
+
+		<script src="../../public/js/common/dasboard.js"></script>
+		<script src="../../public/js/common/profile.js"></script>
+	</body>
+</html>

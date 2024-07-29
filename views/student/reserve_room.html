@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>MFU Room Booking System</title>
+
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="../../public/bootstrap/main.css" />
+		<script src="../../public/bootstrap/bootstrap.bundle.min.js"></script>
+
+		<!-- Sweet Alert -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/
+		sweetalert2.all.min.js"></script>
+
+		<!-- css -->
+		<link rel="stylesheet" href="../../public/css/student/reserve_room.css" />
+	</head>
+	<body class="bg-cusbgprimary">
+		<div class="wrappper">
+			<!-- navabar -->
+			<nav class="navbar py-1 bg-navprimary">
+				<div class="left">
+					<a
+						class="navbar-brand text-cusprimary fw-bolder"
+						href="/student_landing"
+						><img
+							src="../../public/img/Mae-Fah-Luang-University-2.png"
+							alt="Brand Name"
+							width="60px"
+							height="60px" />
+					</a>
+					<a class="text-cusprimary fw-normal mx-2 links" href="/check_booking"
+						>Check Booking</a
+					>
+					<a
+						class="text-cusprimary fw-normal mx-2 links"
+						href="/student_history"
+						>History</a
+					>
+					<a
+						class="text-cusprimary fw-normal mx-2 links"
+						href="/student_browse_rooms"
+						>Browse Rooms</a
+					>
+				</div>
+				<div class="right me-3">
+					<img
+						id="nav-profile"
+						src="../../public/img/user.png"
+						alt="profile"
+						width="40"
+						height="40" />
+				</div>
+
+				<!-- pop up -->
+				<div class="profile-popup bg-navprimary shadow-sm mt-1">
+					<div class="pop-up-wrapper p-2">
+						<div
+							class="d-flex gap-4 align-items-center pop-up-header p-3 border-bottom border-2 border-secondary">
+							<img
+								alt="profile"
+								class="rounded-circle"
+								id="pop-up-image"
+								width="50"
+								height="50" />
+							<span
+								class="text-darktext fw-bolder fs-4 text-center"
+								id="pop-up-username"></span>
+						</div>
+						<div class="d-flex gap-3 flex-column pop-up-content p-3">
+							<a
+								href="/student_profile"
+								class="d-flex align-items-center gap-3">
+								<img
+									src="../../public/img/profile.png"
+									class="pop-up-profile"
+									alt="profile"
+									width="40"
+									height="40" />
+								<span class="text-darktext fw-semibold mx-2 links"
+									>Profile</span
+								>
+								<span
+									class="align-self-end text-darktext ms-4 fs-4 fw-bold arrow"
+									>></span
+								>
+							</a>
+							<a
+								href="/login"
+								class="d-flex align-items-center gap-3"
+								id="log-out">
+								<img
+									src="../../public/img/log-out.png"
+									class="pop-up-profile"
+									alt="profile"
+									width="40"
+									height="40" />
+								<span class="text-darktext fw-semibold mx-2 links">Logout</span>
+								<span
+									class="align-self-end text-darktext ms-4 fs-4 fw-bold arrow"
+									>></span
+								>
+							</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<div class="container">
+				<h1 class="text-header fw-bolder my-3">Reserve Room</h1>
+				<!-- input fields -->
+				<div class="d-flex gap-3 flex-column">
+					<div class="row align-items-center g-2 mb-2">
+						<span class="col-lg-2 text-greytext fw-semibold fs-5 label"
+							>Room Type :
+						</span>
+						<span class="col-lg-auto text-darktext fw-bold fs-5" id="room-type">
+						</span>
+					</div>
+					<div class="row align-items-center g-2 mb-2">
+						<span class="col-lg-2 text-greytext fw-semibold fs-5 label"
+							>Room Number :
+						</span>
+						<span
+							class="col-lg-auto text-darktext fw-bold fs-5"
+							id="room-number"></span>
+					</div>
+					<div class="row align-items-center g-2">
+						<span class="col-lg-2 text-greytext fw-semibold fs-5 label"
+							>Time Slot :
+						</span>
+						<select
+							class="form-select d-inline col-lg-auto text-secondary fw-bold fs-5"
+							style="width: 15rem"
+							id="time-slot"
+							aria-label="Default select example">
+							<option value="no slot">Select Here</option>
+							<option value="1" class="d-none" id="slot1">
+								08:00-10:00 a.m
+							</option>
+							<option value="2" class="d-none" id="slot2">
+								10:00-12:00 p.m
+							</option>
+							<option value="3" class="d-none" id="slot3">
+								12:00-14:00 p.m
+							</option>
+							<option value="4" class="d-none" id="slot4">
+								14:00-16:00 p.m
+							</option>
+						</select>
+						<span class="d-none text-warning" id="no_slot_text">
+							No slots available to select
+						</span>
+					</div>
+					<div class="row align-items-start g-2 my-2">
+						<span class="col-lg-2 text-greytext fw-semibold fs-5 label"
+							>Request notes :
+						</span>
+
+						<textarea
+							name="notes"
+							rows="4"
+							cols="60"
+							class="text-secondary py-1 px-1 border bg-light d-block col-lg-auto text-secondary fw-semibold"
+							id="request_note"
+							placeholder="You can note requests here..."></textarea>
+					</div>
+					<div class="row align-items-start g-2 my-2">
+						<span class="col-lg-2 text-greytext fw-semibold fs-5 label"
+							>Reasons:
+						</span>
+
+						<textarea
+							name="notes"
+							rows="4"
+							cols="60"
+							class="text-secondary py-1 px-1 border bg-light d-block col-lg-auto text-secondary fw-semibold"
+							id="reason"
+							placeholder="you can note your reasons here"></textarea>
+					</div>
+					<div class="row align-items-start g-2 my-2">
+						<span class="col-lg-2 text-greytext fw-semibold fs-5 label"
+							>Document:
+						</span>
+
+						<div class="col-lg-auto text-greytext fw-semibold">
+							<label for="file-input" class="file-input-label">
+								<img
+									src="../../public/img/doc.png"
+									alt="docicon"
+									width="40"
+									height="40" />
+								<span class="text-greytext px-2" id="file-name">
+									click to upload the document if any
+								</span>
+							</label>
+							<input
+								type="file"
+								id="file-input"
+								class="file text-greytext"
+								accept="image/png, image/jpeg, img/jpg, application/pdf," />
+						</div>
+					</div>
+				</div>
+
+				<!-- buttons -->
+				<div
+					class="buttons-wrapper d-flex gap-3 align-items-center justify-content-end">
+					<button
+						class="btn btn-lg btn-Backbtn fw-bolder text-white"
+						id="back-btn">
+						Back
+					</button>
+					<button
+						class="btn btn-lg btn-cusbtnprimary fw-bolder text-white"
+						id="reserve-btn">
+						Reserve
+					</button>
+				</div>
+			</div>
+		</div>
+		<script src="../../public/js/student/reserve_room.js"></script>
+		<script src="../../public/js/common/profile.js"></script>
+	</body>
+</html>

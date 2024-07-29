@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Register</title>
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="../../public/bootstrap/main.css" />
+		<script src="../../public/bootstrap/bootstrap.bundle.min.js"></script>
+
+		<!-- css -->
+		<link rel="stylesheet" href="../../public/css/auth/log_reg.css" />
+
+		<!-- Sweet Alert -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
+	</head>
+	<body>
+		<div class="app">
+			<div class="image"></div>
+			<div class="content-wrapper bg-cusbgprimary">
+				<div class="content">
+					<div class="mfu-wrapper">
+						<img
+							src="../../public/img/MFU-logo.png"
+							alt="MFU-logo"
+							class="mfu-logo" />
+					</div>
+					<div class="header">
+						<h2 class="header-text text-header">
+							Welcome MFU Room Reservation
+						</h2>
+					</div>
+					<div class="form-wrapper">
+						<h1 class="header-text text-login">Register</h1>
+
+						<div class="forms mb-3">
+							<!-- username -->
+							<div class="username mb-3">
+								<label for="" class="form-label">Username</label>
+								<input
+									type="text"
+									class="form-control"
+									name=""
+									id="username"
+									aria-describedby="emailHelpId"
+									placeholder="Username" />
+								<div id="error-username" class="text-danger"></div>
+							</div>
+
+							<!-- email -->
+							<div class="email mb-3">
+								<label for="" class="form-label">Email</label>
+								<input
+									type="email"
+									class="form-control"
+									name=""
+									id="email"
+									aria-describedby="emailHelpId"
+									placeholder="Email" />
+								<div id="error-email" class="text-danger"></div>
+							</div>
+
+							<!-- password -->
+
+							<div class="password mb-3">
+								<label for="" class="form-label">Password</label>
+								<div class="password-toggle">
+									<input
+										type="password"
+										class="form-control"
+										name=""
+										id="password"
+										placeholder="Password"
+										required />
+									<span onclick="togglePasswordVisibility()">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="16"
+											height="16"
+											fill="currentColor"
+											class="bi bi-eye toggle-icon"
+											viewBox="0 0 16 16">
+											<path
+												d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+											<path
+												d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+										</svg>
+									</span>
+								</div>
+								<div id="error-password" class="text-danger"></div>
+							</div>
+
+							<!-- re-password -->
+							<div class="re-password mb-3">
+								<label for="" class="form-label">Confirm password</label>
+								<div class="re-password-toggle">
+									<input
+										type="password"
+										class="form-control"
+										name=""
+										id="re-password"
+										placeholder="Re-Password"
+										required />
+									<span onclick="toggleRePasswordVisibility()">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="16"
+											height="16"
+											fill="currentColor"
+											class="bi bi-eye re-toggle-icon"
+											viewBox="0 0 16 16">
+											<path
+												d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+											<path
+												d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+										</svg>
+									</span>
+								</div>
+								<div id="error-repassword" class="text-danger"></div>
+							</div>
+
+							<div class="text-danger mt-3 fs-5" id="error"></div>
+
+							<div class="mt-4 d-flex justify-content-center">
+								<button
+									id="register-btn"
+									type="button"
+									class="btn btn-lg btn-Approvebtn text-cusbgsecondary fw-semibold">
+									Register
+								</button>
+							</div>
+
+							<!-- signup -->
+							<div class="mt-4 d-flex justify-content-center">
+								<p class="pe-2">Already have a membership ?</p>
+								<a href="/login"> Login </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../public/js/auth/register.js"></script>
+	</body>
+</html>

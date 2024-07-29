@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="../../public/bootstrap/main.css" />
+		<script src="../../public/bootstrap/bootstrap.bundle.min.js"></script>
+
+		<!-- Sweet Alert -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/
+		sweetalert2.all.min.js"></script>
+		<!-- css -->
+		<link rel="stylesheet" href="../../public/css/staff/staff_profile.css" />
+
+		<title>MFU Room Booking System</title>
+	</head>
+	<body class="bg-cusbgprimary">
+		<div class="wrapper">
+			<!-- navabar -->
+			<nav class="navbar py-1 bg-navprimary">
+				<div class="left">
+					<a class="navbar-brand text-cusprimary fw-bolder" href="#"
+						><img
+							src="../../public/img/Mae-Fah-Luang-University-2.png"
+							alt="Brand Name"
+							width="60px"
+							height="60px" />
+					</a>
+					<a class="text-cusprimary fw-normal mx-2 links" href="/manage_rooms"
+						>Manage Rooms</a
+					>
+					<a
+						class="text-cusprimary fw-normal mx-2 links"
+						href="/staff_dashboard"
+						>Dashboard</a
+					>
+					<a class="text-cusprimary fw-normal mx-2 links" href="/staff_history"
+						>History</a
+					>
+				</div>
+				<div class="right me-3">
+					<img
+						id="nav-profile"
+						src="../../public/img/user.png"
+						alt="profile"
+						width="40"
+						height="40" />
+				</div>
+
+				<!-- pop up -->
+				<div class="profile-popup bg-navprimary shadow-sm mt-1">
+					<div class="pop-up-wrapper p-2">
+						<div
+							class="d-flex gap-4 align-items-center pop-up-header p-3 border-bottom border-2 border-secondary">
+							<img
+								id="pop-up-image"
+								class="rounded-circle"
+								alt="profile"
+								width="50"
+								height="50" />
+							<span
+								class="text-darktext fw-bolder fs-4 text-center"
+								id="pop-up-username"></span>
+						</div>
+						<div class="d-flex gap-3 flex-column pop-up-content p-3">
+							<a href="/staff_profile" class="d-flex align-items-center gap-3">
+								<img
+									src="../../public/img/profile.png"
+									class="pop-up-profile"
+									alt="profile"
+									width="40"
+									height="40" />
+								<span class="text-darktext fw-semibold mx-2 links"
+									>Profile</span
+								>
+								<span
+									class="align-self-end text-darktext ms-4 fs-4 fw-bold arrow"
+									>></span
+								>
+							</a>
+							<a
+								href="/login"
+								class="d-flex align-items-center gap-3"
+								id="log-out">
+								<img
+									src="../../public/img/log-out.png"
+									class="pop-up-profile"
+									alt="profile"
+									width="40"
+									height="40" />
+								<span class="text-darktext fw-semibold mx-2 links">Logout</span>
+								<span
+									class="align-self-end text-darktext ms-4 fs-4 fw-bold arrow"
+									>></span
+								>
+							</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<div
+				class="profile-container row justify-content-center align-items-center py-3">
+				<div class="col-lg-6">
+					<h1 class="text-header fw-bolder mb-3">Profile</h1>
+
+					<!-- photo upload -->
+					<div class="d-flex align-items-center gap-5">
+						<img
+							class="rounded-circle"
+							id="profile-image"
+							src="../../public/img/user.png"
+							alt="profile"
+							width="200"
+							height="200" />
+
+						<div class="d-flex gap-3 buttons align-self-end align-items-center">
+							<label for="file-input"
+								><img
+									style="cursor: pointer"
+									src="../../public/img/upload.png"
+									width="40"
+									height="40"
+									alt="upload"
+							/></label>
+							<input
+								type="file"
+								id="file-input"
+								class="d-none"
+								accept="image/png, image/jpeg, img/jpg" />
+							<button class="btn btn-danger fw-bolder" id="remove-btn">
+								Remove
+							</button>
+						</div>
+					</div>
+
+					<div class="d-flex flex-column gap-3 mt-4">
+						<div class="row justify-content-start align-items-center">
+							<span class="text-darktext fs-5 fw-bold col-3">Username :</span>
+							<input
+								type="text"
+								class="form-control d-inline col-7"
+								id="profile-username"
+								value=""
+								style="width: 50%" />
+
+							<span class="text-danger col-auto" id="error-username"></span>
+						</div>
+
+						<div class="row justify-content-start align-items-center">
+							<span class="text-darktext fs-5 fw-bold col-3">Email :</span>
+							<input
+								type="text"
+								class="form-control d-inline col-7"
+								value=""
+								id="profile-email"
+								style="width: 50%"
+								disabled />
+						</div>
+
+						<div class="password-links d-flex gap-4">
+							<span
+								class="text-primary fw-bold border-bottom border-primary border-2 fs-5"
+								data-bs-toggle="modal"
+								data-bs-target="#change_password_modal"
+								>Change Password</span
+							>
+							<span
+								class="text-logotext fw-bold border-bottom border-logotext border-2 fs-5"
+								id="forget"
+								>Forget Password</span
+							>
+						</div>
+
+						<button
+							class="btn btn-cusbtnprimary btn-lg text-white fw-bold mt-3"
+							id="save-btn"
+							style="width: 15%">
+							Save
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- change password modal -->
+			<div
+				class="modal fade"
+				id="change_password_modal"
+				tabindex="-1"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				role="dialog"
+				aria-labelledby="modalTitleId"
+				aria-hidden="true">
+				<div
+					class="modal-dialog modal-dialog-scrollable modal-dialog-centered"
+					role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title text-header" id="modalTitleId">
+								Change password
+							</h5>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<label for="old_password" class="mt-3">Old Password</label>
+							<input
+								type="password"
+								class="form-control mt-2"
+								id="old-password" />
+							<div id="error-old-password" class="text-danger"></div>
+
+							<label for="new_password" class="mt-3">New Password</label>
+							<input
+								type="password"
+								class="form-control mt-2"
+								id="new-password" />
+							<div id="error-new-password" class="text-danger"></div>
+
+							<label for="new_password" class="mt-3"
+								>Confirm new password</label
+							>
+							<input
+								type="password"
+								class="form-control mt-2"
+								id="re-password" />
+							<div id="error-re-password" class="text-danger"></div>
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-cusbtnprimary text-white fw-bold"
+								id="modal-confirm-btn">
+								Save
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="../../public/js/staff/staff_profile.js"></script>
+		<script src="../../public/js/common/profile.js"></script>
+	</body>
+</html>

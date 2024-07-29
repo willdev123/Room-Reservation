@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="../../public/bootstrap/main.css" />
+		<script src="../../public/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Sweet Alert -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/
+		sweetalert2.all.min.js"></script>
+
+		<title>MFU Room Booking System</title>
+		<!-- css -->
+		<link rel="stylesheet" href="../../public/css/lec/reserve_detail.css" />
+	</head>
+	<body class="bg-cusbgprimary">
+		<div class="wrapper">
+			<!-- navabar -->
+			<nav class="navbar py-1 bg-navprimary">
+				<div class="left">
+					<a class="navbar-brand text-cusprimary fw-bolder" href="#"
+						><img
+							src="../../public/img/Mae-Fah-Luang-University-2.png"
+							alt="Brand Name"
+							width="60px"
+							height="60px" />
+					</a>
+					<a
+						class="text-linkselect fw-normal mx-2 links current"
+						href="/book_requests"
+						>Booking Requests</a
+					>
+					<a class="text-cusprimary fw-normal mx-2 links" href="/lec_dashboard"
+						>Dashboard</a
+					>
+					<a class="text-cusprimary fw-normal mx-2 links" href="/lec_history"
+						>History</a
+					>
+					<a
+						class="text-cusprimary fw-normal mx-2 links"
+						href="/lec_browse_rooms"
+						>Browse Rooms</a
+					>
+				</div>
+				<div class="right me-3">
+					<img
+						id="nav-profile"
+						src="../../public/img/user.png"
+						alt="profile"
+						width="40"
+						height="40" />
+				</div>
+
+				<!-- pop up -->
+				<div class="profile-popup bg-navprimary shadow-sm mt-1">
+					<div class="pop-up-wrapper p-2">
+						<div
+							class="d-flex gap-4 align-items-center pop-up-header p-3 border-bottom border-2 border-secondary">
+							<img
+								alt="profile"
+								class="rounded-circle"
+								id="pop-up-image"
+								width="50"
+								height="50" />
+							<span
+								class="text-darktext fw-bolder fs-4 text-center"
+								id="pop-up-username"></span>
+						</div>
+						<div class="d-flex gap-3 flex-column pop-up-content p-3">
+							<a href="/lec_profile" class="d-flex align-items-center gap-3">
+								<img
+									src="../../public/img/profile.png"
+									class="pop-up-profile"
+									alt="profile"
+									width="40"
+									height="40" />
+								<span class="text-darktext fw-semibold mx-2 links"
+									>Profile</span
+								>
+								<span
+									class="align-self-end text-darktext ms-4 fs-4 fw-bold arrow"
+									>></span
+								>
+							</a>
+							<a
+								href="/login"
+								class="d-flex align-items-center gap-3"
+								id="log-out">
+								<img
+									src="../../public/img/log-out.png"
+									class="pop-up-profile"
+									alt="profile"
+									width="40"
+									height="40" />
+								<span class="text-darktext fw-semibold mx-2 links">Logout</span>
+								<span
+									class="align-self-end text-darktext ms-4 fs-4 fw-bold arrow"
+									>></span
+								>
+							</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<div class="container">
+				<h1 class="my-3 text-header fw-bolder">Reservation Detail</h1>
+				<!-- card content -->
+				<div class="card bg-white border rounded mb-2 shadow-sm">
+					<div class="content px-4 py-3 d-flex flex-column gap-3">
+						<div class="d-flex align-items-center">
+							<span
+								class="text-greytext fw-semibold label"
+								style="width: 9.5rem"
+								>Request notes :</span
+							>
+							<span class="text-darktext label fw-bold" id="req-notes"> </span>
+						</div>
+						<div class="d-flex align-items-center">
+							<span
+								class="text-greytext fw-semibold label"
+								style="width: 9.5rem"
+								>Reason :</span
+							>
+							<span class="text-darktext fw-bold label" id="reason"> </span>
+						</div>
+						<div class="d-flex align-items-center">
+							<span
+								class="text-greytext fw-semibold label"
+								style="width: 9.5rem"
+								>Time slot :</span
+							>
+							<span class="text-darktext fw-bold label" id="time-slot"> </span>
+						</div>
+						<!--Add document -->
+						<div class="d-flex align-items-center">
+							<span class="text-greytext fw-bold label" style="width: 9.5rem"
+								>Document :</span
+							>
+							<span class="text-darktext" id="req-notes">
+								<a id="document" style="cursor: pointer" target="_blank"
+									><img
+										src="../../public/img/doc.png"
+										alt="docicon"
+										width="40px"
+										height="40px"
+										class="" />
+									<span class="text-greytext px-2" id="document">
+										click to view the document
+									</span></a
+								>
+							</span>
+						</div>
+					</div>
+				</div>
+				<!-- Notes -->
+				<h2 class="text-greytext my-3 fw-bolder">Notes</h2>
+				<textarea
+					id="note"
+					name="notes"
+					rows="10"
+					cols="80"
+					class="text-greytext py-1 px-1 border bg-light d-block"
+					placeholder="Reasons for approval or Disapproval..."></textarea>
+				<!-- buttons -->
+				<div class="footer float-end mt-5 d-flex gap-2">
+					<button
+						class="btn btn-Backbtn btn-lg text-white fw-bolder"
+						id="backbtn">
+						Back
+					</button>
+					<button
+						class="btn btn-Approvebtn btn-lg text-white fw-bolder"
+						id="approvebtn">
+						Approve
+					</button>
+					<button
+						class="btn btn-nondisbtn btn-lg px-3 py-2 text-white fw-bolder"
+						id="disappbtn">
+						Disapprove
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="../../public/js/lec/reserve_detail.js"></script>
+		<script src="../../public/js/common/profile.js"></script>
+	</body>
+</html>

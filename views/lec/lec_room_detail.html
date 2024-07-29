@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="../../public/bootstrap/main.css" />
+		<script src="../../public/bootstrap/bootstrap.bundle.min.js"></script>
+
+		<!-- leaflet map -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+			crossorigin="" />
+		<script
+			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+			crossorigin=""></script>
+
+		<!-- Sweet Alert -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/
+
+		sweetalert2.all.min.js"></script>
+		<!-- css -->
+		<link rel="stylesheet" href="../../public/css/lec/lec_room_detail.css" />
+
+		<title>MFU Room Booking System</title>
+	</head>
+	<body class="bg-cusbgprimary">
+		<!-- navabar -->
+		<nav class="navbar py-1 bg-navprimary">
+			<div class="left">
+				<a class="navbar-brand text-cusprimary fw-bolder" href="#"
+					><img
+						src="../../public/img/Mae-Fah-Luang-University-2.png"
+						alt="Brand Name"
+						width="60px"
+						height="60px" />
+				</a>
+				<a class="text-cusprimary fw-normal mx-2 links" href="/book_requests"
+					>Booking Requests</a
+				>
+				<a class="text-cusprimary fw-normal mx-2 links" href="/lec_dashboard"
+					>Dashboard</a
+				>
+				<a class="text-cusprimary fw-normal mx-2 links" href="/lec_history"
+					>History</a
+				>
+				<a
+					class="text-linkselect fw-normal mx-2 current links"
+					href="/lec_browse_rooms"
+					>Browse Rooms</a
+				>
+			</div>
+			<div class="right me-3">
+				<img
+					id="nav-profile"
+					src="../../public/img/user.png"
+					alt="profile"
+					width="40"
+					height="40" />
+			</div>
+
+			<!-- pop up -->
+			<div class="profile-popup bg-navprimary shadow-sm mt-1">
+				<div class="pop-up-wrapper p-2">
+					<div
+						class="d-flex gap-4 align-items-center pop-up-header p-3 border-bottom border-2 border-secondary">
+						<img
+							alt="profile"
+							class="rounded-circle"
+							id="pop-up-image"
+							width="50"
+							height="50" />
+						<span
+							class="text-darktext fw-bolder fs-4 text-center"
+							id="pop-up-username"></span>
+					</div>
+					<div class="d-flex gap-3 flex-column pop-up-content p-3">
+						<a href="/lec_profile" class="d-flex align-items-center gap-3">
+							<img
+								src="../../public/img/profile.png"
+								class="pop-up-profile"
+								alt="profile"
+								width="40"
+								height="40" />
+							<span class="text-darktext fw-semibold mx-2 links">Profile</span>
+							<span class="align-self-end text-darktext ms-4 fs-4 fw-bold arrow"
+								>></span
+							>
+						</a>
+						<a
+							href="/login"
+							class="d-flex align-items-center gap-3"
+							id="log-out">
+							<img
+								src="../../public/img/log-out.png"
+								class="pop-up-profile"
+								alt="profile"
+								width="40"
+								height="40" />
+							<span class="text-darktext fw-semibold mx-2 links">Logout</span>
+							<span class="align-self-end text-darktext ms-4 fs-4 fw-bold arrow"
+								>></span
+							>
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="container-fluid wrapper">
+			<h1 class="mx-3 text-header fw-bold">Room Details</h1>
+
+			<!-- Photo  -->
+			<div class="row m-3 justify-content-center align-items-center">
+				<div id="carouselHero" class="col-lg-6 carousel slide">
+					<div class="carousel-inner slide-show-cus mb-2"></div>
+					<button
+						class="carousel-control-prev"
+						type="button"
+						data-bs-target="#carouselHero"
+						data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button
+						class="carousel-control-next"
+						type="button"
+						data-bs-target="#carouselHero"
+						data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+
+			<!-- Links  -->
+			<div class="text-center my-2">
+				<div class="row justify-content-around">
+					<div
+						class="text-cusprimary fs-4 fw-semibold col-lg-3 border-secondary border-end border-2">
+						<span
+							class="edit-links border-bottom border-2 border-secondary text-linkselect"
+							id="details"
+							>Details</span
+						>
+					</div>
+					<div
+						class="text-cusprimary fs-4 fw-semibold col-lg-3 border-secondary border-end border-2">
+						<span class="edit-links" id="schedule">Schedule</span>
+					</div>
+					<div
+						class="text-cusprimary fs-4 fw-semibold col-lg-3 border-secondary border-end border-2">
+						<span class="edit-links" id="features">Features</span>
+					</div>
+					<div class="text-cusprimary fs-4 fw-semibold col-lg-3">
+						<span class="edit-links" id="location">Location</span>
+					</div>
+				</div>
+			</div>
+
+			<div
+				class="container shadow-sm bg-light border rounded data-section mt-3">
+				<!-- Details -->
+				<div
+					class="p-2 mt-4 d-flex flex-column gap-3 d-block"
+					id="details-data">
+					<div class="row align-items-center field">
+						<span class="text-greytext fw-medium fs-5 col-lg-3"
+							>Room type :
+						</span>
+						<span
+							class="text-darktext fw-semibold fs-5 col-lg-3"
+							id="room-type">
+						</span>
+					</div>
+					<div class="row align-items-center field">
+						<span class="text-greytext fw-medium fs-5 col-lg-3"
+							>Room Number :
+						</span>
+						<span
+							class="text-darktext fw-semibold fs-5 col-lg-3"
+							id="room-number">
+						</span>
+					</div>
+					<div class="row align-items-center field">
+						<span class="text-greytext fw-medium fs-5 col-lg-3"
+							>Building Number :
+						</span>
+						<span
+							class="text-darktext fw-semibold fs-5 col-lg-3"
+							id="building-number">
+						</span>
+					</div>
+					<div class="row align-items-center field">
+						<span class="text-greytext fw-medium fs-5 col-lg-3"
+							>Capacity :
+						</span>
+						<span class="text-darktext fw-semibold fs-5 col-lg-3" id="capacity">
+						</span>
+					</div>
+				</div>
+				<!-- Schedule -->
+				<div
+					class="p-2 mt-2 d-flex flex-column gap-2 d-none"
+					id="schedule-data">
+					<h4 class="text-headersecondary fw-bold">Today Time Slots</h4>
+					<div class="d-flex gap-5">
+						<span class="schedule-label text-greytext fw-semibold fs-5"
+							>08:00-10:00a.m :
+						</span>
+						<span class="schedule-value fw-semibold fs-5" id="timeslot1"></span>
+					</div>
+					<div class="d-flex gap-5 align-items-center">
+						<span class="schedule-label text-greytext fw-semibold fs-5"
+							>10:00-12:00p.m :
+						</span>
+						<span class="schedule-value fw-semibold fs-5" id="timeslot2"></span>
+					</div>
+					<div class="d-flex gap-5">
+						<span class="schedule-label text-greytext fw-semibold fs-5"
+							>12:00-14:00p.m :
+						</span>
+						<span class="schedule-value fw-semibold fs-5" id="timeslot3"></span>
+					</div>
+					<div class="d-flex gap-5">
+						<span class="schedule-label text-greytext fw-semibold fs-5"
+							>14:00-16:00p.m :
+						</span>
+						<span class="schedule-value fw-semibold fs-5" id="timeslot4"></span>
+					</div>
+				</div>
+				<!-- Features -->
+				<div id="features-data" class="d-none p-2">
+					<div class="row justify-content-center mt-2" id="features-data">
+						<div class="col-lg-6 border-end border-secondary border-2">
+							<div
+								class="mt-2 d-flex flex-column gap-3"
+								id="first-features-section"></div>
+						</div>
+						<div class="col-lg-6">
+							<div
+								class="mt-2 d-flex flex-column gap-3"
+								id="second-features-section"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- location -->
+				<div
+					class="map-wrapper row justify-content-center p-2 d-none"
+					id="location-data">
+					<div id="map" class="text-center"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- action buttons -->
+		<div
+			class="d-flex justify-content-end gap-3 align-items-center p-2 buttons-section">
+			<button class="btn btn-Backbtn text-white fw-bolder btn-lg" id="back-btn">
+				Back
+			</button>
+		</div>
+
+		<script src="../../public/js/lec/lec_room_detail.js"></script>
+		<script src="../../public/js/common/profile.js"></script>
+	</body>
+</html>
